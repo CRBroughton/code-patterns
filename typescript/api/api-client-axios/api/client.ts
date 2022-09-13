@@ -17,12 +17,4 @@ export class ApiClient {
         // Type here should be the root response type
         return httpClient.get<MockResponseType>({url: this.endpoint})
     }
-
-    // Use to check initiate the response, probably could merge with above method
-    async getResults() {
-        const data = await this.initResults()
-
-        if (data)
-            return data
-    }
 }
