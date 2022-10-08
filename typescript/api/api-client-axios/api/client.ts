@@ -13,7 +13,7 @@ export class ApiClient {
     // Extend your class with new endpoints. An API Client class should
     // never deal with state; Separate your state logic from your client logic.
 
-    async initResults() {
+    async getEndpointData() {
         // Type here should be the root response type
         return httpClient.get<MockResponseType>({url: this.endpoint})
     }
