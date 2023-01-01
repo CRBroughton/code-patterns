@@ -1,3 +1,3 @@
 # Code Patterns
 
-This repository details various pattern code patterns.
+This repository details various code patterns.
