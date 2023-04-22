@@ -31,6 +31,7 @@ export const personFixture = () => {
         pets: [{breed: 'best', name: "doggo"}],
     }
 
+    // Use generic builder for person functions
     const { create, createArray } = builder(person)
 
     return {

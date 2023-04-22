@@ -6,6 +6,7 @@ export const handlers = [
     rest.get('/', (_, res, ctx) => {
         return res(
           ctx.status(200),
+          // use resolver for response
           ctx.json(personResolver('dan'))
         )
     }),
