@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { builder } from './builder'
 
 // Schema/Contract/Source of truth for the front end
 const nameSchema = z.union([z.literal('craig'), z.literal('dan'), z.literal('bill')])
@@ -30,18 +31,7 @@ export const personFixture = () => {
         pets: [{breed: 'best', name: "doggo"}],
     }
 
-    const create = (props?: Partial<Person>): Person => {
-        return { ...person, ...props }
-    }
-
-    const createArray = (count: number, props?: Partial<Person>): Person[] => {
-       return Array(count).fill(count).map(() => {
-            return {
-                ...person,
-                ...props,
-            }
-        })
-    }
+    const { create, createArray } = builder(person)
 
     return {
         create,

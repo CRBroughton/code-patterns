@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/node': ^18.15.13
   '@vitejs/plugin-vue': ^4.1.0
   msw: ^1.2.1
   ts-pattern: ^4.2.2
@@ -14,11 +15,12 @@ dependencies:
   vue: 3.2.47
 
 devDependencies:
+  '@types/node': 18.15.13
   '@vitejs/plugin-vue': 4.1.0_vite@4.3.1+vue@3.2.47
   msw: 1.2.1_typescript@5.0.4
   ts-pattern: 4.2.2
   typescript: 5.0.4
-  vite: 4.3.1
+  vite: 4.3.1_@types+node@18.15.13
   vue-tsc: 1.4.2_typescript@5.0.4
   zod: 3.21.4
 
@@ -308,7 +310,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.3.1
+      vite: 4.3.1_@types+node@18.15.13
       vue: 3.2.47
     dev: true
 
@@ -1235,7 +1237,7 @@ packages:
       which-typed-array: 1.1.9
     dev: true
 
-  /vite/4.3.1:
+  /vite/4.3.1_@types+node@18.15.13:
     resolution: {integrity: sha512-EPmfPLAI79Z/RofuMvkIS0Yr091T2ReUoXQqc5ppBX/sjFRhHKiPPF/R46cTdoci/XgeQpB23diiJxq5w30vdg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -1260,6 +1262,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 18.15.13
       esbuild: 0.17.17
       postcss: 8.4.23
       rollup: 3.20.7
