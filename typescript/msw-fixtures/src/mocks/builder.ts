@@ -14,8 +14,30 @@ export const builder = <T>(item: T) => {
         })
     }
 
+    /**
+     * Creates a unique array of objects from a fixture.
+     * 
+     * Usage: To use, pass in your desired fixture
+     * to the parent builder function, then pass in
+     * your desired overrides to the creatUniArray function.
+     * 
+     * @param props Generic array of objects
+     * @returns Generic array of objects with overrides
+     * 
+     */
+    const createUniArray = (props: Partial<T>[]): T[] => {
+        let array: T[] = []
+
+        props.forEach(entry => {
+            array.push({ ...item, ...entry })
+        })
+
+        return array
+    }
+
     return {
         create,
-        createArray
+        createArray,
+        createUniArray,
     }
 }

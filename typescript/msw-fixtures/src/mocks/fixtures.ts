@@ -5,7 +5,7 @@ import { builder } from './builder'
 const nameSchema = z.union([z.literal('craig'), z.literal('dan'), z.literal('bill')])
 const PersonSchema = z.object({
 	name: nameSchema,
-	birthday: z.date(),
+	birthday: z.union([z.date(), z.string()]),
 	address: z.object({
 		street: z.string(),
 		city: z.string(),
@@ -32,11 +32,12 @@ export const personFixture = () => {
     }
 
     // Use generic builder for person functions
-    const { create, createArray } = builder(person)
+    const { create, createArray, createUniArray } = builder(person)
 
     return {
         create,
         createArray,
+        createUniArray
     }
 
 }
