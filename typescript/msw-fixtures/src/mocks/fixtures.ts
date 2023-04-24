@@ -18,7 +18,10 @@ const PersonSchema = z.object({
 export type Person = z.infer<typeof PersonSchema>
 export type Name = z.infer<typeof nameSchema>
 
-// Create a fixture
+/**
+ * Creates a person object or array of objects using
+ * the provided create, createArray and createUniArray functions.
+ */
 export const personFixture = () => {
     const person: Person = {
         name: 'craig',
