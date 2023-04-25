@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { builder } from './builder'
 
 // Schema/Contract/Source of truth for the front end
-const nameSchema = z.union([z.literal('craig'), z.literal('dan'), z.literal('bill')])
+const nameSchema = z.enum(['craig','dan','bill'])
 const PersonSchema = z.object({
 	name: nameSchema,
 	birthday: z.union([z.date(), z.string()]),
