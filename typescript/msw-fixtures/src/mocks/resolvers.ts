@@ -1,19 +1,23 @@
-import { Name, Person, personFixture } from "./fixtures"
 import { match } from 'ts-pattern'
+import { createFixture } from './builder'
+import type { Name, Person } from './fixtures'
+import { PersonSchema } from './fixtures'
 
-export const personResolver = (state: Name): Person | Person[] => {
-    return match(state)
-        .with('craig', () => personFixture().create({ name: state }))
-        .with('dan', () => personFixture().createUniArray([
-        {
-            name: "craig",
-            birthday: '15/06/1990',
-            pets: undefined,
-        },
-        {
-            birthday: '15/01/1990',
-        }
-        ]))
-        .with('bill', () => personFixture().createArray(2))
-        .otherwise(() => personFixture().create())
+export function personResolver(state: Name): Person | Person[] {
+  const { create, createArray, createUniArray } = createFixture(PersonSchema.parse({}))
+
+  return match(state)
+    .with('craig', () => create({ name: state }))
+    .with('dan', () => createUniArray([
+      {
+        name: 'craig',
+        birthday: '15/06/1990',
+        pets: undefined,
+      },
+      {
+        birthday: '15/01/1990',
+      },
+    ]))
+    .with('bill', () => createArray(2))
+    .otherwise(() => create())
 }
